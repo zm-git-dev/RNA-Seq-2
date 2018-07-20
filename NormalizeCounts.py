@@ -1,3 +1,9 @@
+# A counts.txt file (created with the use of FeatureCounts from the Subread package) entered at the countsFile
+# in line 12 will be normalized to a counts_norm.txt file.
+# normalization is based on DEseq2 as explaned in the video https://www.youtube.com/watch?v=UFB993xufUU
+# Tijs bliek
+# 7/20/2018
+
 import math
 from numpy import mean
 from numpy import median
