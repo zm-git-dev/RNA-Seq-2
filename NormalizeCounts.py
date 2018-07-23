@@ -1,14 +1,19 @@
-# A counts.txt file (created with the use of FeatureCounts from the Subread package) entered at the countsFile
-# in line 12 will be normalized to a counts_norm.txt file.
-# normalization is based on DEseq2 as explaned in the video https://www.youtube.com/watch?v=UFB993xufUU
-# Tijs bliek
-# 7/20/2018
-
+#!/bin/env python
+import sys
 import math
 from numpy import mean
 from numpy import median
 
-countsFile = "counts.txt"
+countsFile = sys.argv[1]  
+
+if countsFile == "help" or countsFile == "-h" or countsFile == "--help" or countsFile == "-help" or countsFile.split(".")[-1] != "txt" :
+    print ("Description: NormalizeCounts.py normalizes \"counts.txt\" files created with the use of FeatureCounts from the Subread package\
+    normalization is based on DEseq2 as explaned in the video https://www.youtube.com/watch?v=UFB993xufUU\
+    tijs bliek, 7/20/2018, Amsterdam\
+    \n usage: ./NormalizeCounts.py [FILENAME] \n\n [FILENAME] \tShould be FeatureCounts counts table (tab delimited .txt),\
+    \n\t\tcontaining 6 columns of feature information and next multiple columns containing raw counts.")
+    sys.exit()
+
 counts = open(countsFile, "r")
 samples = []
 numbers = {}
